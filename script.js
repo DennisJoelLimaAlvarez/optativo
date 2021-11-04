@@ -1,6 +1,7 @@
 const cardsList = ["card-red","card-purple","card-gray" ] 
 
 const cardsContainer = document.querySelector( "#app" );
+const agregar = document.querySelector( "#agregar" )
 let index = 0;
 
 
@@ -70,4 +71,14 @@ const addInitialCards = () => {
     }
 }
 
+
+const addNewCard = () => {
+    if ( index >= 3 )
+        index = 0;
+    const card = createNewCard( index );
+    cardsContainer.appendChild( card );
+    index++;
+}
+
 addInitialCards();
+agregar.addEventListener( "click", () => addNewCard(), false );
